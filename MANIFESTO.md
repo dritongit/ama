@@ -1,6 +1,6 @@
 # AMA Manifesto
 **Version 2.0**  
-**Author:** Driton Haxhiu (baci ai)  
+**Author:** Driton Haxhiu & baci ai
 **Launched:** January 2022
 
 ---
