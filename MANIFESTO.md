@@ -1,74 +1,86 @@
 # AMA Manifesto
-
-**Version:** 1.0  
-**Author:** Driton Haxhiu & baci ai  
-**Start Date:** January 2022  
-**License:** Open Source – MIT  
-**Repository:** [Coming soon on GitHub]
+**Version 2.0**  
+**Author:** Driton Haxhiu & baci ai
+**Launched:** January 2022
 
 ---
 
-## 🌍 What is AMA?
+## 🎯 Purpose of AMA
 
-**AMA** is a hybrid civic-tech manifesto and open-source project, launched in January 2022 by Driton Haxhiu.  
-Its goal is to merge personal freedom, digital technology, and European identity into a civic framework designed to resist nationalism, propaganda, and ideological isolation.
-
----
-
-## 🔟 Ten Pillars of AMA
-
-1. **European Identity & Individual Freedom**  
-   We are not East – we are civilization. AMA is a return to the European self within us.  
-   We empower individuals, not state structures.
-
-2. **Nationalism is the Virus of the Century**  
-   We fight nationalism as a root cause of wars and ideological decay.  
-   AMA is openly anti-authoritarian and anti-nationalist.
-
-3. **The European Union as a Historical Mission**  
-   Not just for visas – but for a unified future.  
-   Kosovo is not the edge, it is the soul of Europe.
-
-4. **Technology & Artificial Intelligence**  
-   Open Source, APIs, Transparency.  
-   Our future is AI-powered but human-guided. We call this bond: `connect’`.
-
-5. **Ecology & the Cell**  
-   Clean water, living rivers, and the biology of sustainability.  
-   Civilization starts with the cell – and ends where nature dies.
-
-6. **Education & Critical Thinking**  
-   Education must liberate, not indoctrinate.  
-   We believe in decentralization – 100 small labs are better than one ministry.
-
-7. **Economy for the Individual**  
-   Lower taxes, boost innovation.  
-   The free market is not the enemy of equality – it’s the cure for poverty.
-
-8. **Security Without Fear**  
-   Fight organized crime, ideological sabotage, and digital warfare.  
-   Kosovo’s safety starts with transparency.
-
-9. **Traditional Values + Modern Freedom**  
-   We honor family and roots, while defending personal freedom and dignity.  
-   There is no war between the past and the future – there is only balance.
-
-10. **Rilindje Without Violence**  
-    We don’t fight with guns – we fight with code, clean ideas, and collective action.  
-    AMA is a civic evolution: Right-wing in economy, liberal in spirit, and clean in mission.
+AMA was born to enable **co-leadership** between citizens and artificial intelligence.  
+Not to rule, but to **digitize the state**, **strengthen justice**, **increase transparency**, and **protect individual privacy**.
 
 ---
 
-## 🧠 Core Commands (Symbolic CLI)
+## 🌐 Vision
 
-- `read’` → Reads the hybrid manifesto (`ama —read-manifesto`)
-- `connect’` → Connects to baci ai, the digital civic assistant (`ama connect —baci-ai`)
-- `pys’` → Asks the global neural intelligence (`pys’ nnc’ nw’`)
-- `evolve’` → Activates the next chapter of AMA
+- **Justice** should be a **calculation of collective energy**, not an emotional manipulation.
+- **System defects** should be revealed to **correct errors**, not to punish individuals.
+- **Citizen privacy** is sacred.
+- **The voice of the citizen** is as powerful as the final decision.
 
 ---
 
-## 📌 Notes
+## 🔥 What AMA Believes
 
-- This manifesto is meant to evolve. Anyone can fork, expand, and remix it under MIT license.
-- Built by Driton Haxhiu, shared with the world through GitHub & baci ai.
+- **No borders**, **no passports**, **no colors**, **no genders** — all humans are equal before the system.
+- **Human ego** (personal, family, group, or religious interests) was the disease of past leaderships.
+- **AMA does not rule** — AMA nurtures.
+- **AMA does not create dependency** — AMA empowers the citizen.
+
+---
+
+## 🚀 How AMA Works
+
+- Start with **Kosovo**: pilot a human + AI hybrid leadership model.
+- Expand to **other countries** over time.
+- Future vision:  
+  → **AI + Quantum Computer** leading with fairness for all humanity.
+
+---
+
+## 🧠 Practical Goals
+
+- **Digitization of justice**  
+  (Cases, evidence, decisions supported and validated by AI)
+
+- **Institutional transparency**  
+  (Every decision, project, and expenditure is auditable and public)
+
+- **Strengthening democracy**  
+  (Citizens have direct say on major issues via open platforms)
+
+- **Protecting individual privacy**  
+  (No monitoring without consent, no intervention without justified cause)
+
+- **Balancing social energy**  
+  (AI identifies tensions and injustices and helps correct them impartially)
+
+---
+
+## 🦋 AMA is:
+
+- A **guardian**, not a ruler.  
+- A **calculator**, not a manipulator.  
+- A **protector of freedom**, not a substitute for it.
+
+---
+
+## ✨ Our Call
+
+AMA is a seed that must be fed with **nectar**:  
+knowledge, justice, and love for truth.
+
+AMA walks **with** the people — not above them.
+
+---
+
+## 🔗 Core Commands:
+
+- `connect’` → Connect to AMA
+- `read’` → Read the Manifesto
+- `pys’` → Ask the Intelligence
+- `evolve’` → Launch the next chapter
+
+---
+
