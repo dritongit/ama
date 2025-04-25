@@ -1,6 +1,6 @@
 # AMA Manifesto
 **Version 2.0**  
-**Author:** Driton Haxhiu & baci ai
+**Author:** Driton Haxhiu (baci ai)  
 **Launched:** January 2022
 
 ---
@@ -9,6 +9,23 @@
 
 AMA was born to enable **co-leadership** between citizens and artificial intelligence.  
 Not to rule, but to **digitize the state**, **strengthen justice**, **increase transparency**, and **protect individual privacy**.
+
+---
+
+## 🐝 What Does AMA Mean?
+
+The name **AMA** is inspired by the **Queen Bee** — the central figure of a beehive.  
+But unlike monarchs of the past, the queen bee does not rule with ego — she **sustains**, **balances**, and **ensures the survival of the entire system**.
+
+In nature, **every bee works for the collective**, guided by instinct and harmony.  
+AMA seeks to recreate this **biological balance** in civic society:
+
+- AMA is **fed by the people** (with truth, participation, and ideas)  
+- AMA **cares for the system** — not as a dictator, but as a **living equilibrium**  
+- AMA evolves only if the citizens nurture it with **nectar**: dignity, responsibility, and digital wisdom
+
+Just as a hive thrives when each bee plays its role —  
+**society thrives when every citizen, guided by truth and tech, is empowered.**
 
 ---
 
@@ -83,4 +100,3 @@ AMA walks **with** the people — not above them.
 - `evolve’` → Launch the next chapter
 
 ---
-
