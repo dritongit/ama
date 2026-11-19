@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from openai import OpenAI  # versioni i ri i librarisë
+from dotenv import load_dotenv
 import numpy as np
 import cirq
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -8,7 +9,11 @@ import os
 from flask_cors import CORS
 
 # Vendos API key në mënyrë të sigurt (mos e lë publikisht në kod)
-client = OpenAI(api_key="[SECRETKEY]")
+#client = OpenAI(api_key="[SECRETKEY]")
+load_dotenv()
+client = OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY")
+)
 
 app = Flask(__name__)
 CORS(app)
@@ -51,7 +56,7 @@ def process_text():
 
         # Thirrje OpenAI me SDK të ri
         openai_resp = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4.1-mini",
             messages=[{"role": "user", "content": user_input}]
         )
         response_text = openai_resp.choices[0].message.content

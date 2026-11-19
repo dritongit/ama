@@ -1,0 +1,30 @@
+# Environment variables / API keys
+.env
+.env.*
+
+# Python virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Python packages
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+bash.exe.stackdump
