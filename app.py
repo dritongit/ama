@@ -7,6 +7,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import normalize
 import os
 from flask_cors import CORS
+from services.document_loader import load_constitution
 
 # Vendos API key në mënyrë të sigurt (mos e lë publikisht në kod)
 #client = OpenAI(api_key="[SECRETKEY]")
@@ -17,6 +18,13 @@ client = OpenAI(
 
 app = Flask(__name__)
 CORS(app)
+
+if __name__ == "__main__":
+    pages = load_constitution()
+
+    print("Total pages:", len(pages))
+    print(pages[0]["content"][:2000])
+
 
 # Analiza e tekstit dhe kthimi në amplituda
 def text_to_amplitudes(text):
