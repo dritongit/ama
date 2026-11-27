@@ -1,5 +1,5 @@
-from flask import Flask, request, jsonify
-from openai import OpenAI  # versioni i ri i librarisë
+from flask import Flask, request, jsonify, send_from_directory
+from openai import OpenAI
 from dotenv import load_dotenv
 import numpy as np
 import cirq
@@ -7,33 +7,39 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import normalize
 import os
 from flask_cors import CORS
-from services.document_loader import load_constitution
+from services.database import init_db
+init_db()  # Create DB tables once on startup
 
-# Vendos API key në mënyrë të sigurt (mos e lë publikisht në kod)
-#client = OpenAI(api_key="[SECRETKEY]")
+from services.rag import ask_ama
+from services.content_analysis import analyze_statement
+
 load_dotenv()
+
+# Ollama lokalisht - pa kredite, pa API key
 client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY")
+    base_url="http://localhost:11434/v1",
+    api_key="ollama"
 )
 
 app = Flask(__name__)
 CORS(app)
 
-if __name__ == "__main__":
-    pages = load_constitution()
+# --- Serve frontend nga root ---
+@app.route('/')
+def index():
+    return send_from_directory('.', 'index.html')
 
-    print("Total pages:", len(pages))
-    print(pages[0]["content"][:2000])
+@app.route('/main.js')
+def serve_main_js():
+    return send_from_directory('.', 'main.js')
 
-
-# Analiza e tekstit dhe kthimi në amplituda
+# --- Quantum helpers (të vjetrat, i ruajmë) ---
 def text_to_amplitudes(text):
     vec = TfidfVectorizer(max_features=2).fit_transform([text]).toarray()
     if vec.shape[1] < 2:
         vec = np.pad(vec, ((0, 0), (0, 2 - vec.shape[1])), 'constant')
     return normalize(vec)[0]
 
-# Simulimi në Cirq
 def simulate_quantum(amplitudes):
     qubit = cirq.NamedQubit("q0")
     circuit = cirq.Circuit()
@@ -41,9 +47,8 @@ def simulate_quantum(amplitudes):
     sim = cirq.Simulator()
     result = sim.simulate(circuit)
     return [float(x.real) for x in result.final_state_vector]
-    # return result.final_state_vector.tolist()
 
-# Endpoint për testim
+# --- Endpoints ---
 @app.route('/api/test', methods=['GET'])
 def readFile():
     return jsonify({
@@ -51,9 +56,9 @@ def readFile():
         'quantum_result': 2
     })
 
-# Endpoint kryesor që përpunon tekstin
 @app.route('/api/process', methods=['POST'])
 def process_text():
+    """Chat i lirë + Quantum - tash me Ollama."""
     try:
         data = request.get_json()
         if not data or 'text' not in data:
@@ -62,28 +67,58 @@ def process_text():
         user_input = data['text']
         print("Teksti i marrë:", user_input)
 
-        # Thirrje OpenAI me SDK të ri
         openai_resp = client.chat.completions.create(
-            model="gpt-4.1-mini",
+            model="qwen2.5:7b",
             messages=[{"role": "user", "content": user_input}]
         )
         response_text = openai_resp.choices[0].message.content
-        print("OpenAI response:", response_text)
+        print("Ollama response:", response_text)
 
-        # Përkthe tekstin në amplituda dhe ekzekuto në Cirq
         amplitudes = text_to_amplitudes(response_text)
-        print("Amplitudat:", amplitudes)
-
         quantum_output = simulate_quantum(amplitudes)
-        print("Quantum output:", quantum_output)
 
         return jsonify({
             'openai_response': response_text,
             'quantum_result': quantum_output
         })
-
     except Exception as e:
         print("Gabim gjatë përpunimit:", e)
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/ask', methods=['POST'])
+def ask_constitution():
+    """RAG - Pyet Kushtetutën."""
+    try:
+        data = request.get_json()
+        if not data or 'text' not in data:
+            return jsonify({'error': 'Nuk u dërgua fusha "text" në JSON.'}), 400
+
+        question = data['text']
+        print("Pyetja RAG:", question)
+
+        result = ask_ama(question)
+
+        return jsonify({
+            'question': result["question"],
+            'answer': result["answer"],
+            'sources': result["sources"],
+        })
+    except Exception as e:
+        print("Gabim RAG:", e)
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/analyze', methods=['POST'])
+def analyze():
+    """Analizo deklaratën - shpifje / urrejtje / kërcënim."""
+    try:
+        data = request.get_json()
+        if not data or 'text' not in data:
+            return jsonify({'error': 'Nuk u dërgua fusha "text" në JSON.'}), 400
+
+        result = analyze_statement(data['text'])
+        return jsonify(result)
+    except Exception as e:
+        print("Gabim Analyze:", e)
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
